@@ -6,5 +6,5 @@ A collection of useful information for use with the OpenGeo Suite of application
 License
 -------
 
-Generally, the information in this repo is meant to be shared freely.  Specific license ifnormation should be available per document.
+Generally, the information in this repository is meant to be shared freely.  Specific license information should be available per document.
 
