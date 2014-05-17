@@ -30,8 +30,6 @@ echo "--> Downloading libraries" | tee -a $LOGFILE
 # Set your JAVA JDK path
 JDKP="/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.55.x86_64/"
 wget -N "http://download.java.net/media/jai/builds/release/1_1_3/jai-1_1_3-lib-linux-amd64-jdk.bin" | tee -a $LOGFILE
-# export _POSIX2_VERSION=199209
-# replace the above fix with sed below
 wget -N "http://download.java.net/media/jai-imageio/builds/release/1.1/jai_imageio-1_1-lib-linux-amd64-jdk.bin" | tee -a $LOGFILE
 sudo sed s/+215/-n+215/ ./jai_imageio-1_1-lib-linux-amd64-jdk.bin > ./fixed-jai_imageio-1_1-lib-linux-amd64-jdk.bin
 sudo mv ./jai-1_1_3-lib-linux-amd64-jdk.bin $JDKP | tee -a $LOGFILE
