@@ -124,3 +124,19 @@ echo "--> Stopping Tomcat7" | tee -a $LOGFILE
 sudo service tomcat7 stop | tee -a $LOGFILE
 # All done now
 echo "--> Script complete. See log file: " $LOGFILE
+# Maybe TO DO - make geoserver data volume available via command line
+# Handled through AWS console for now
+# lsblk to check volume names
+#if using ebs for data directory:
+sudo mkdir /appdata
+sudo mount /dev/xvdg1 /appdata
+# Need to add the following to /etc/fstab
+# /dev/xvdg1  /gisdata  ext4  defaults  0  2
+# TODO: add 102630 WKT to data/user_projections/epsg.properties
+# 102630=PROJCS["NAD_1983_StatePlane_Alabama_West_FIPS_0102_Feet",GEOGCS["GCS_North_American_1983",DATUM["North_American_Datum_1983",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",1968500],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",-87.5],PARAMETER["Scale_Factor",0.9999333333333333],PARAMETER["Latitude_Of_Origin",30],UNIT["Foot_US",0.30480060960121924],AUTHORITY["EPSG","102630"]]
+#
+# Also enable jsonp in WEB-INF/web.xml:
+# <context-param>
+#    <param-name>ENABLE_JSONP</param-name>
+#    <param-value>true</param-value>
+#</context-param>
