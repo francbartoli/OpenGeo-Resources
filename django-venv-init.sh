@@ -16,35 +16,22 @@ sudo yum -y install git
 # Configure git
 # git config --global user.name "yournamehere"
 # git config --global user.email "youraddresshere"
+sudo yum install python-devel
+sudo yum -y install gcc
+sudo yum --enablerepo=epel install postgresql-devel
 sudo yum -y install python-pip
 sudo pip install --upgrade pip
 sudo pip install virtualenv
-#VENV_HOME=/home/ec2-user
-##############
-# Revised virtualenv to use system site packages
-# to get around psycopg2 installation issues
-# Todo: verify following line on a clean AMI
-##############
-sudo yum install python-psycopg2
-virtualenv --system-site-packages django-venv
-# To activate environment: source ./django-venv/bin/activate
+# To activate environment: source bin/activate
 # To deactivate: deactivate
+# For packages specific to a virtual environment,
 # Pip install must be done while environment is activated
 pip install django
+pip install psycopg2
 # Check with: which django-admin.py
 cd django-venv
-###################
-# Django fails due to missing postgresql-psycopg2
-# Tried the following while venv active
-# sudo yum install python-devel
-# sudo yum install python-psycopg2
-# to no avail
 ##NOTE##################
 # To serve the development server to the internet
 # ./manage.py runserver 0.0.0.0:8000
 ###################
 #######
-# TODO: Turn following notes into code
-# This will use Python2.7 in virtualenv in support of Django 1.7
-# sudo yum install python27
-# virtualenv --python=/usr/bin/python2.7 django-venv
