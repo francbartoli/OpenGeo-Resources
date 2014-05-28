@@ -28,8 +28,23 @@ sudo pip install virtualenv
 # Pip install must be done while environment is activated
 pip install django
 pip install psycopg2
+pip install PIL --allow-external PIL --allow-unverified PIL
+##NOTE##################
+# PIL installed with following notice
+# *** TKINTER support not available
+# *** JPEG support not available
+# *** ZLIB (PNG/ZIP) support not available
+# *** FREETYPE2 support not available
+# *** LITTLECMS support not available
+# --------------------------------------------------------------------
+# To add a missing option, make sure you have the required
+# library, and set the corresponding ROOT variable in the
+# setup.py script.
+##########
+pip install South
+##########
 # Check with: which django-admin.py
-cd django-venv
+#cd django-venv
 ##NOTE##################
 # To serve the development server to the internet
 # ./manage.py runserver 0.0.0.0:8000
